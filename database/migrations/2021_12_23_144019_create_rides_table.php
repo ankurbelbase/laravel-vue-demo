@@ -18,6 +18,9 @@ class CreateRidesTable extends Migration
             $table->string('distance')->nullable();
             $table->string('average_speed')->nullable();
             $table->string('duration_s')->nullable();
+            $table->integer('battery')->nullable();
+            $table->decimal('latitude')->nullable();
+            $table->decimal('longitude')->nullable();
             $table->timestamps();
         });
     }
