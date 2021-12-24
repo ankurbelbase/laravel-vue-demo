@@ -2283,7 +2283,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'app',
   components: {
-    Home: _components_Home__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Home: _components_Home__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Navbar: _components_Navbar__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -2331,6 +2332,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -39095,85 +39101,94 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "position-ref full-height" }, [
-      _c("div", { staticClass: "content" }, [
-        _c("h2", [_vm._v(" Rides Details")]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "map" },
-          [
-            _c(
-              "gmap-map",
-              {
-                staticStyle: { width: "100%", height: "440px" },
-                attrs: { center: _vm.mapCenter, zoom: 10 },
-              },
-              [
-                _c(
-                  "gmap-info-window",
-                  {
-                    attrs: {
-                      options: _vm.infoWindowOption,
-                      position: _vm.infoWindowPosition,
-                      opened: _vm.infoWindowOpened,
-                    },
-                    on: { closeClick: _vm.handleInfoWindowClose },
-                  },
-                  [
-                    _c("div", { staticClass: "info-window" }, [
-                      _c(
-                        "h2",
-                        {
-                          domProps: {
-                            textContent: _vm._s(_vm.activeRide.average_speed),
-                          },
-                        },
-                        [_vm._v("abc")]
-                      ),
-                      _vm._v(" "),
-                      _c("h5", {
-                        domProps: {
-                          textContent: _vm._s(_vm.activeRide.distance),
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c("p", {
-                        domProps: {
-                          textContent: _vm._s(_vm.activeRide.average_speed),
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c("p", {
-                        domProps: {
-                          textContent: _vm._s(_vm.activeRide.average_speed),
-                        },
-                      }),
-                    ]),
-                  ]
-                ),
-                _vm._v(" "),
-                _vm._l(_vm.rides, function (r) {
-                  return _c("gmap-marker", {
-                    key: r.id,
-                    attrs: {
-                      position: _vm.getPosition(r),
-                      clickable: true,
-                      draggable: false,
-                    },
-                    on: {
-                      click: function ($event) {
-                        return _vm.handleMarkerClicked(r)
+      _c(
+        "div",
+        { staticClass: "content" },
+        [
+          _c("h2", [_vm._v(" Rides Details")]),
+          _vm._v(" "),
+          _vm._l(_vm.rides.slice(0, 1), function (ride, index) {
+            return _c("p", { key: ride.id }, [
+              _vm._v(
+                "\n                  Distance (m): " +
+                  _vm._s(index) +
+                  " - " +
+                  _vm._s(ride.distance)
+              ),
+              _c("br"),
+              _vm._v(
+                "\n                  Duration (s): " + _vm._s(ride.duration_s)
+              ),
+              _c("br"),
+              _vm._v(
+                "\n                  Duration (km/hr): " +
+                  _vm._s(ride.average_speed)
+              ),
+              _c("br"),
+              _vm._v(
+                "\n                  Started at : " + _vm._s(ride.created_at)
+              ),
+              _c("br"),
+            ])
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "map" },
+            [
+              _c(
+                "gmap-map",
+                {
+                  staticStyle: { width: "100%", height: "440px" },
+                  attrs: { center: _vm.mapCenter, zoom: 10 },
+                },
+                [
+                  _c(
+                    "gmap-info-window",
+                    {
+                      attrs: {
+                        options: _vm.infoWindowOption,
+                        position: _vm.infoWindowPosition,
+                        opened: _vm.infoWindowOpened,
                       },
+                      on: { closeClick: _vm.handleInfoWindowClose },
                     },
-                  })
-                }),
-              ],
-              2
-            ),
-          ],
-          1
-        ),
-      ]),
+                    [
+                      _c("div", { staticClass: "info-window" }, [
+                        _vm._v("\n                      Battery: "),
+                        _c("h5", {
+                          domProps: {
+                            textContent: _vm._s(_vm.activeRide.battery),
+                          },
+                        }),
+                      ]),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.rides, function (r) {
+                    return _c("gmap-marker", {
+                      key: r.id,
+                      attrs: {
+                        position: _vm.getPosition(r),
+                        clickable: true,
+                        draggable: false,
+                      },
+                      on: {
+                        click: function ($event) {
+                          return _vm.handleMarkerClicked(r)
+                        },
+                      },
+                    })
+                  }),
+                ],
+                2
+              ),
+            ],
+            1
+          ),
+        ],
+        2
+      ),
     ]),
   ])
 }

@@ -21,23 +21,23 @@ class RideSeeder extends Seeder
             'longitude'=>8.75076,
         ]);
 
-        // DB::table(table:'rides')->insert([
-        //     'distance'=>'1000',
-        //     'average_speed'=>'12',
-        //     'duration_s'=>'260',
-        //     'battery'=>4203,
-        //     'latitude'=>51.71501,
-        //     'longitude'=>8.75076
-        // ]);
+        DB::table('rides')->insert([
+            'distance'=>'1000',
+            'average_speed'=>'12',
+            'duration_s'=>'260',
+            'battery'=>4196,
+            'latitude'=>51.715132,
+            'longitude'=>8.746782,
+        ]);
 
-        // DB::table(table:'rides')->insert([
-        //     'distance'=>'1000',
-        //     'average_speed'=>'12',
-        //     'duration_s'=>'260',
-        //     'battery'=>4203,
-        //     'latitude'=>51.71501,
-        //     'longitude'=>8.75076
-        // ]);
+        DB::table('rides')->insert([
+            'distance'=>'1000',
+            'average_speed'=>'12',
+            'duration_s'=>'260',
+            'battery'=>4202,
+            'latitude'=>51.715018,
+            'longitude'=>8.746452,
+        ]);
 
     }
 }

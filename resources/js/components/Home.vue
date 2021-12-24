@@ -3,6 +3,14 @@
       <div class="position-ref full-height">
           <div class="content">
               <h2> Rides Details</h2>
+            
+                <p v-for="(ride, index) in rides.slice(0, 1)" :key="ride.id">
+                    Distance (m): {{ index }} - {{ ride.distance }}<br>
+                    Duration (s): {{ ride.duration_s}}<br>
+                    Duration (km/hr): {{ ride.average_speed}}<br>
+                    Started at : {{ ride.created_at}}<br>
+                </p>
+              
               <div class="map">
                   <gmap-map
                         :center="mapCenter"
@@ -16,10 +24,7 @@
                         @closeClick="handleInfoWindowClose"
                     >
                     <div class="info-window">
-                        <h2 v-text="activeRide.average_speed">abc</h2>
-                        <h5  v-text="activeRide.distance"></h5>
-                            <p  v-text="activeRide.average_speed"></p>
-                            <p  v-text="activeRide.average_speed"></p>
+                        Battery: <h5 v-text="activeRide.battery"></h5>
                     </div>
                     </gmap-info-window>
                     <gmap-marker
